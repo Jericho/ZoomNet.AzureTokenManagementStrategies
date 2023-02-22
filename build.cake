@@ -26,15 +26,15 @@ if (IsRunningOnUnix()) target = "Run-Unit-Tests";
 // GLOBAL VARIABLES
 ///////////////////////////////////////////////////////////////////////////////
 
-var libraryName = "ZoomNet.AzureTokenManagementStrategies";
-var gitHubRepo = "ZoomNet.AzureTokenManagementStrategies";
+var libraryName = "ZoomNet.TokenRepositories.Azure";
+var gitHubRepo = "ZoomNet.TokenRepositories.Azure";
 
 var testCoverageFilters = new[]
 {
-	"+[ZoomNet.AzureTokenManagementStrategies]*",
-	"-[ZoomNet.AzureTokenManagementStrategies]ZoomNet.AzureTokenManagementStrategies.Properties.*",
-	"-[ZoomNet.AzureTokenManagementStrategies]ZoomNet.AzureTokenManagementStrategies.Models.*",
-	"-[ZoomNet.AzureTokenManagementStrategies]*System.Text.Json.SourceGeneration*"
+	"+[ZoomNet.TokenRepositories.Azure]*",
+	"-[ZoomNet.TokenRepositories.Azure]ZoomNet.TokenRepositories.Azure.Properties.*",
+	"-[ZoomNet.TokenRepositories.Azure]ZoomNet.TokenRepositories.Azure.Models.*",
+	"-[ZoomNet.TokenRepositories.Azure]*System.Text.Json.SourceGeneration*"
 };
 var testCoverageExcludeAttributes = new[]
 {
