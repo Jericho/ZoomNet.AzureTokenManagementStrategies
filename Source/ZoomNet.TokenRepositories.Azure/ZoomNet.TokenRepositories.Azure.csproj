@@ -1,0 +1,82 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net48;netstandard2.1;net6.0;net7.0</TargetFrameworks>
+    <LangVersion>preview</LangVersion>
+    <PlatformTarget>anycpu</PlatformTarget>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <OutputType>Library</OutputType>
+    <Version>$(SemVer)</Version>
+    <DebugType>portable</DebugType>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>ZoomNet.TokenRepositories.Azure</PackageId>
+    <AssemblyName>ZoomNet.TokenRepositories.Azure</AssemblyName>
+    <AssemblyTitle>ZoomNet.TokenRepositories.Azure</AssemblyTitle>
+    <Authors>Jeremie Desautels</Authors>
+    <Company></Company>
+    <Description>Various stategies to manage OAuth tokens when using ZoomNet's OautConnection info.</Description>
+    <Copyright>Copyright © Jeremie Desautels and contributors 2023 - Present</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/Jericho/ZoomNet.TokenRepositories.Azure</PackageProjectUrl>
+    <PackageIconUrl>https://github.com/identicons/jericho.png</PackageIconUrl>
+    <PackageIcon>PackageIcon.png</PackageIcon>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageTags>ZoomNet zoom oauth token management</PackageTags>
+    <PackageReleaseNotes></PackageReleaseNotes>
+  </PropertyGroup>
+
+  <ItemGroup Condition=" $(TargetFramework.StartsWith('net4')) ">
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Runtime.Serialization" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" $(TargetFramework.StartsWith('netstandard')) ">
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+  </ItemGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Release' ">
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningsNotAsErrors>612,618</WarningsNotAsErrors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\PackageIcon.png" Pack="true" PackagePath="" />
+    <None Include="..\..\README.md" Pack="true" PackagePath="" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="$(SolutionDir)stylecop.json" Link="stylecop.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Azure.Storage.Blobs" Version="12.14.1" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
+    <PackageReference Include="Picton">
+      <Version>8.0.0</Version>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net7.0'">
+    <PackageReference Include="Picton">
+      <Version>8.0.0</Version>
+    </PackageReference>
+  </ItemGroup>
+
+  <PropertyGroup>
+    <CodeAnalysisRuleSet>$(SolutionDir)StyleCopRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  
+</Project>
