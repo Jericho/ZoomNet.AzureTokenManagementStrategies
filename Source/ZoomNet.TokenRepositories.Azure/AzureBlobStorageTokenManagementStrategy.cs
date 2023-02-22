@@ -6,12 +6,12 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace ZoomNet.TokenManagementStrategies.Azure
+namespace ZoomNet.TokenRepositories.Azure
 {
 	/// <summary>
 	/// Store token in Azure blob storage.
 	/// </summary>
-	internal class AzureBlobStorageTokenManagementStrategy : ITokenManagementStrategy
+	internal class AzureBlobStorageTokenManagementStrategy : ITokenRepository
 	{
 		private readonly BlobClient _blob;
 
