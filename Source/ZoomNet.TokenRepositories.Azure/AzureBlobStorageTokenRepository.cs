@@ -11,13 +11,13 @@ namespace ZoomNet.TokenRepositories.Azure
 	/// <summary>
 	/// Store token in Azure blob storage.
 	/// </summary>
-	internal class AzureBlobStorageTokenManagementStrategy : ITokenRepository
+	internal class AzureBlobStorageTokenRepository : ITokenRepository
 	{
 		private readonly BlobClient _blob;
 
 		private string _leaseId = null;
 
-		public AzureBlobStorageTokenManagementStrategy(string connectionString, string containerName, string blobName)
+		public AzureBlobStorageTokenRepository(string connectionString, string containerName, string blobName)
 		{
 			var blobContainer = new BlobContainerClient(connectionString, containerName);
 			blobContainer.CreateIfNotExists(PublicAccessType.None);
